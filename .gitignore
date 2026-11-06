@@ -1,0 +1,31 @@
+# Dependencies
+/vendor/
+/node_modules/
+frontend/node_modules/
+
+# Laravel
+.env
+.env.backup
+.env.production
+/storage/*.key
+/storage/logs/*
+!/storage/logs/.gitkeep
+/bootstrap/cache/*
+!/bootstrap/cache/.gitkeep
+/public/build
+/public/hot
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Test / coverage
+.phpunit.result.cache
+/coverage/
+
+# Build output
+frontend/dist/
