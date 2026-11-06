@@ -1,0 +1,17 @@
+$ curl -s -o /dev/null -w "HTTP %{http_code}, %{size_download} bytes\n" http://localhost:4173/
+HTTP 200, 407 bytes
+$ curl -s http://localhost:4173/ | head -c 400
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Job Manager</title>
+    <script type="module" crossorigin src="/assets/index-C9RGOo4F.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D9OArr_-.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+<
+Note: the built dashboard HTML serves, but the API is not running here (no Postgres/Redis on this machine), so the page cannot load live data.
