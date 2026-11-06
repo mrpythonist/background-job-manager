@@ -1,0 +1,8 @@
+Checking 37 PHP files with php -l...
+PASS: php -l clean for 37 files.
+PASS: valid JSON: /home/hatch/workspace/github-open-source-readiness/work/background-job-manager/backend/composer.json
+PASS: valid JSON: /home/hatch/workspace/github-open-source-readiness/work/background-job-manager/frontend/package.json
+PASS: .env.example covers docker-compose placeholders (DB_DATABASE, DB_USERNAME, DB_PASSWORD, DB_PORT, REDIS_PORT, APP_ENV, APP_KEY, JOB_MANAGER_API_KEY).
+PASS: frontend/.env.example defines VITE_API_URL.
+
+All verification checks passed.
