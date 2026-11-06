@@ -1,0 +1,46 @@
+name: Feature request
+description: Suggest a new feature or improvement
+title: "[Feature] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Check the README roadmap first. Some ideas (real handlers, per-user auth, scheduled jobs, autoscaling, Prometheus metrics) are already listed there.
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Describe the situation, not just the feature.
+      placeholder: I cannot tell why a queue is slow without opening each job.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What should change, in concrete terms?
+      placeholder: Add a per-queue throughput column to the queues page.
+    validations:
+      required: true
+  - type: textarea
+    id: verify
+    attributes:
+      label: How would this be verified?
+      description: How would a contributor prove it works? Against live Postgres and Redis, or with the lint and smoke scripts only?
+      placeholder: Run the stack, submit 10 jobs to one queue, and check the new column updates.
+    validations:
+      required: false
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Scope
+      description: Which part of the project does this touch?
+      options:
+        - Backend API
+        - Frontend dashboard
+        - Both backend and frontend
+        - Docker / deployment
+        - Documentation
+    validations:
+      required: false
