@@ -1,0 +1,61 @@
+{
+  "description": "Example POST /api/jobs payloads. Send with: curl -X POST http://localhost:8000/api/jobs -H 'Content-Type: application/json' -d @payload.json",
+  "examples": [
+    {
+      "name": "Send a welcome email (simulated)",
+      "payload": {
+        "queue": "emails",
+        "handler": "SendEmail",
+        "payload": {
+          "to": "user@example.com",
+          "subject": "Welcome aboard",
+          "simulate": { "duration_ms": 800, "should_fail": false }
+        },
+        "priority": 5,
+        "max_attempts": 3
+      }
+    },
+    {
+      "name": "Generate a monthly report",
+      "payload": {
+        "queue": "reports",
+        "handler": "GenerateReport",
+        "payload": {
+          "report": "monthly-usage",
+          "month": "2026-10",
+          "simulate": { "duration_ms": 2500, "should_fail": false }
+        },
+        "priority": 3,
+        "max_attempts": 3,
+        "delay_seconds": 10
+      }
+    },
+    {
+      "name": "Resize an image",
+      "payload": {
+        "queue": "images",
+        "handler": "ResizeImage",
+        "payload": {
+          "path": "uploads/photo.jpg",
+          "width": 800,
+          "simulate": { "duration_ms": 1200, "should_fail": false }
+        },
+        "priority": 5,
+        "max_attempts": 2
+      }
+    },
+    {
+      "name": "A job that fails (demo of retry)",
+      "payload": {
+        "queue": "sync",
+        "handler": "SyncExternalData",
+        "payload": {
+          "source": "crm",
+          "simulate": { "duration_ms": 400, "should_fail": true, "fail_message": "Upstream CRM returned 503" }
+        },
+        "priority": 1,
+        "max_attempts": 3
+      }
+    }
+  ]
+}
