@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+      - name: Lint all PHP files
+        run: php backend/scripts/verify.php
+      - name: Smoke test pure-PHP stats
+        run: php backend/scripts/smoke.php
+      - name: Install dependencies
+        run: cd backend && composer install --no-interaction --prefer-dist
+      - name: Run tests
+        run: cd backend && php artisan test
+
+  frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Install and build
+        run: cd frontend && npm ci && npm run build
+        
