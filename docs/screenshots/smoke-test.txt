@@ -1,0 +1,16 @@
+PASS: per-status counts
+PASS: per-queue counts
+PASS: failure rate is 33.33%
+PASS: average duration is 200ms
+PASS: throughput last hour is 2
+PASS: empty input: total 0
+PASS: empty input: failure rate 0.0
+PASS: empty input: avg duration null
+PASS: backoff 1st attempt is 10s
+PASS: backoff 2nd attempt is 20s
+PASS: backoff 3rd attempt is 40s
+PASS: backoff 4th attempt is 80s
+PASS: timeseries returns 2 buckets
+PASS: timeseries last bucket has 2 completed 1 failed
+
+All smoke checks passed.
