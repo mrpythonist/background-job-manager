@@ -1,19 +1,28 @@
 # Dependencies
 /vendor/
+backend/vendor/
 /node_modules/
 frontend/node_modules/
 
 # Laravel
 .env
+.env.*
+!.env.example
+backend/.env
+backend/.env.*
+!backend/.env.example
+frontend/.env
+frontend/.env.*
+!frontend/.env.example
 .env.backup
 .env.production
-/storage/*.key
-/storage/logs/*
-!/storage/logs/.gitkeep
-/bootstrap/cache/*
-!/bootstrap/cache/.gitkeep
-/public/build
-/public/hot
+backend/storage/*.key
+backend/storage/logs/*
+!backend/storage/logs/.gitkeep
+backend/bootstrap/cache/*
+!backend/bootstrap/cache/.gitkeep
+backend/public/build
+backend/public/hot
 
 # OS / editors
 .DS_Store
@@ -22,10 +31,15 @@ Thumbs.db
 .vscode/
 *.swp
 *.swo
+*.log
 
 # Test / coverage
 .phpunit.result.cache
 /coverage/
+backend/coverage/
 
 # Build output
 frontend/dist/
+dist/
+*.tsbuildinfo
+frontend/tsconfig.tsbuildinfo
